@@ -4,12 +4,14 @@ import 'package:gap/gap.dart';
 import 'package:mobil_proje/ekranlar/ara%C3%A7lar/app_info_list.dart';
 import 'package:mobil_proje/ekranlar/ara%C3%A7lar/app_style.dart';
 import 'package:mobil_proje/ekranlar/hotel_screen.dart';
+import 'package:mobil_proje/ekranlar/login_screen.dart';
 import 'package:mobil_proje/ekranlar/profile_screen.dart';
+import 'package:mobil_proje/ekranlar/register_screen.dart';
 import 'package:mobil_proje/ekranlar/search_screen.dart';
+import 'package:mobil_proje/ekranlar/show_all.dart';
 import 'package:mobil_proje/ekranlar/ticket_view.dart';
 import 'package:mobil_proje/ekranlar/tickets.dart';
 
-import 'bottom_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -34,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:  [
-                         Text('Günaydın',style: Styles.headLineStyle3,),
+                         Text('Günaydın, ${LoginPage.usernameController.value.text==""?RegisterPage.nameController.value.text:LoginPage.usernameController.value.text}',style: Styles.headLineStyle3,),
                          const Gap(5),
                          Text('Bilet Al',style: Styles.headLineStyle1,),
                       ],
@@ -128,7 +130,11 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text('Uçuşlar',style: Styles.headLineStyle2,),
                     InkWell(
-                        onTap: () {
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ShowAllPage(allWidgets: ticketList.map((singleTicket) => TicketView(ticket:singleTicket,)).toList() )),
+                          );
                         },
                         child: Text('Tümünü Göster ',style: Styles.textStyle.copyWith(color: Styles.primarycolor),))
                   ],
@@ -153,7 +159,10 @@ class HomeScreen extends StatelessWidget {
                 Text('Oteller',style: Styles.headLineStyle2,),
                 InkWell(
                     onTap: (){
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ShowAllPage(allWidgets: hotelList.map((singleHotel) =>HotelScreen(hotel: singleHotel)).toList() )),
+                      );
                     },
                     child: Text('Tümünü Göster ',style: Styles.textStyle.copyWith(color: Styles.primarycolor),))
               ],

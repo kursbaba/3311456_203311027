@@ -4,17 +4,17 @@ import 'home_screen.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
+  static final TextEditingController tcController = TextEditingController();
+  static final TextEditingController nameController = TextEditingController();
+  static final TextEditingController surnameController = TextEditingController();
+  static final TextEditingController phoneController = TextEditingController();
+  static final TextEditingController birthDateController = TextEditingController();
 
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController _tcController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _surnameController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _birthDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               SizedBox(height: 16),
               TextFormField(
-                controller: _tcController,
+                controller: RegisterPage.tcController,
                 decoration: InputDecoration(
                   hintText: 'TCKN Giriniz',
                   border: OutlineInputBorder(
@@ -42,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _nameController,
+                controller: RegisterPage.nameController,
                 decoration: InputDecoration(
                   hintText: 'Adınız',
                   border: OutlineInputBorder(
@@ -57,7 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _surnameController,
+                controller: RegisterPage.surnameController,
                 decoration: InputDecoration(
                   hintText: 'Soyadınız',
                   border: OutlineInputBorder(
@@ -72,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _phoneController,
+                controller: RegisterPage.phoneController,
                 decoration: InputDecoration(
                   hintText: 'Telefon Numaranız',
                   border: OutlineInputBorder(
@@ -87,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _birthDateController,
+                controller: RegisterPage.birthDateController,
                 decoration: InputDecoration(
                   hintText: 'Doğum Tarihinizi Giriniz',
                   border: OutlineInputBorder(
